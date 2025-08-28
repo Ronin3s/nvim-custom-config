@@ -1,4 +1,3 @@
-
 # Neovim Configuration Memory
 
 This file summarizes the Neovim configuration found in `/home/ronin/.config/nvim`.

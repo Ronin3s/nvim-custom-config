@@ -5,6 +5,7 @@ return {
   config = function()
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
+    local startify = require("alpha.themes.startify")
 
     -- ASCII art header
     dashboard.section.header.val = {
@@ -14,9 +15,6 @@ return {
       '██╔══██╗██║   ██║██║╚██╗██║██║██║╚██╗██║ ╚═══██╗╚════██║',
       '██║  ██║╚██████╔╝██║ ╚████║██║██║ ╚████║██████╔╝███████║',
       '╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝',
-      "",
-      "",
-      "", -- spacing
     }
 
     -- Shortcuts
@@ -30,8 +28,8 @@ return {
       dashboard.button("q", "  Quit", ":qa<CR>"),
     }
 
-    -- MRU (recent files)
-    dashboard.section.mru.val = 15
+    -- Use MRU section from startify directly
+    dashboard.section.mru = startify.section.mru
 
     -- Footer
     dashboard.section.footer.val = function()
@@ -43,24 +41,25 @@ return {
         "",
         datetime,
         version,
-        "⚡Blazing Fast  | 󰓾  Efficient  | 󰑣  Productive",
+        "⚡ Blazing Fast  | 󰓾  Efficient  | 󰑣  Productive",
       }
     end
 
+    -- Layout
     dashboard.opts.layout = {
-        { type = "padding", val = 1 },
-        dashboard.section.header,
-        { type = "padding", val = 2 },
-        dashboard.section.buttons,
-        { type = "padding", val = 1 },
-        dashboard.section.mru,
-        { type = "padding", val = 1 },
-        dashboard.section.footer,
+      { type = "padding", val = 1 },
+      dashboard.section.header,
+      { type = "padding", val = 2 },
+      dashboard.section.buttons,
+      { type = "padding", val = 1 },
+      dashboard.section.mru,
+      { type = "padding", val = 1 },
+      dashboard.section.footer,
     }
 
     alpha.setup(dashboard.opts)
 
     -- Quick key to open Dashboard
-    vim.api.nvim_set_keymap('n', '<leader>d', ':Alpha<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>d", ":Alpha<CR>", { noremap = true, silent = true })
   end,
 }

@@ -1,0 +1,53 @@
+return {
+  "folke/which-key.nvim",
+  config = function()
+    local wk = require("which-key")
+
+    wk.setup({
+      plugins = { spelling = true },
+      icons = { breadcrumb = "»", separator = "➜", group = "+" },
+      win = { border = "rounded" },
+    })
+
+    -- Normal mode mappings
+    wk.register({
+      ["<leader>w"] = { ":w<cr>", "Save file" },
+      ["<leader>c"] = { ":bd<cr>", "Close buffer" },
+      ["<leader>q"] = { ":q<cr>", "Quit Neovim" },
+      ["<leader>e"] = { ":Neotree toggle<cr>", "Neo filesystem" },
+      ["<leader>b"] = { ":Telescope buffers<cr>", "Buffers" },
+    }, { mode = "n" })
+
+    -- wk.register({
+    --   ["<leader>c"] = {
+    --     name = "Copilot",
+    --     e = { "<cmd>CopilotChatExplain<cr>", "Explain Selection" },
+    --     f = { "<cmd>CopilotChatFix<cr>", "Fix Selection" },
+    --     r = { "<cmd>CopilotChatReview<cr>", "Review Selection" },
+    --   },
+    -- }, { mode = "v" })
+
+    -- Telescope group
+    wk.register({
+      f = {
+        name = "Find",
+        f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+        g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+        b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+        h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+        n = { "<cmd>Telescope notify<cr>", "Notification History" },
+      },
+    }, { prefix = "<leader>", mode = "n" })
+
+    -- Lazy.nvim group
+    wk.register({
+      l = {
+        name = "Lazy",
+        s = { "<cmd>Lazy sync<cr>", "Sync plugins" },
+        u = { "<cmd>Lazy update<cr>", "Update plugins" },
+        h = { "<cmd>Lazy health<cr>", "Health check" },
+      },
+    }, { prefix = "<leader>", mode = "n" })
+  end,
+  lazy = false,
+}

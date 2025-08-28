@@ -47,6 +47,17 @@ return {
       }
     end
 
+    dashboard.opts.layout = {
+        { type = "padding", val = 1 },
+        dashboard.section.header,
+        { type = "padding", val = 2 },
+        dashboard.section.buttons,
+        { type = "padding", val = 1 },
+        dashboard.section.mru,
+        { type = "padding", val = 1 },
+        dashboard.section.footer,
+    }
+
     alpha.setup(dashboard.opts)
 
     -- Quick key to open Dashboard

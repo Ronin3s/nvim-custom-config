@@ -36,7 +36,15 @@ To use this configuration, you need to have Neovim installed. The `lazy.nvim` pl
 
 On the first run, `lazy.nvim` will bootstrap itself and install all the configured plugins.
 
-## Development Conventions
+## Key Plugins
+
+- **`alpha.nvim`**: A highly configurable dashboard (greeter) for Neovim.
+- **`telescope.nvim`**: A fuzzy finder for files, buffers, and more.
+- **`nvim-lspconfig`**: The Language Server Protocol (LSP) client.
+- **`nvim-treesitter`**: For syntax highlighting and code parsing.
+- **`neo-tree.nvim`**: A file explorer.
+- **`lualine.nvim`**: A feature-rich statusline.
+- **`bufferline.nvim`**: Provides a line with open buffers.
 
 - **Plugin Management**: All plugins are managed through `lazy.nvim`. Plugin specifications are located in the `lua/plugins/` directory.
 - **Modularity**: The configuration is highly modular. Each plugin has its own configuration file, and core settings are separated into logical files in the `lua/config/` directory.

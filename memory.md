@@ -28,9 +28,9 @@ This file summarizes the Neovim configuration found in `/home/ronin/.config/nvim
 - **Purpose**: Toggling comments.
 - **Keymap**: `<leader>/` to toggle comments.
 
-### `dashboard-nvim`
+### `alpha.nvim`
 - **Purpose**: A dashboard on startup.
-- **Configuration**: Includes shortcuts for Telescope, updating plugins, and quitting.
+- **Configuration**: Uses the `dashboard` theme with the MRU section from the `startify` theme.
 
 ### `indent-blankline.nvim`
 - **Purpose**: Adds indentation guides.

@@ -23,3 +23,8 @@ vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buff
 -- Press <Shift-Tab> in normal mode to go to the previous buffer
 vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 
+
+-- Format current file with conform.nvim
+vim.keymap.set({"n", "v"}, "<leader>Cf", function()
+  require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = "Format file" })

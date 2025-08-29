@@ -73,6 +73,6 @@ return {
         reveal_file = reveal_file,
       }
       require("neo-tree.command").execute(args)
-    end, { desc = "Reveal current file in Neo-tree (works with hidden files too)" })
+    end, { desc = "Reveal " })
   end,
 }

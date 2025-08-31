@@ -36,6 +36,7 @@ return {
       local servers = {
         "lua_ls",
         "bashls",
+        "texlab",
       }
 
       -- Configure mason-lspconfig to ensure servers are installed

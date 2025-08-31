@@ -48,6 +48,19 @@ return {
         h = { "<cmd>Lazy health<cr>", "Health check" },
       },
     }, { prefix = "<leader>", mode = "n" })
+
+    -- VimTeX / LaTeX group
+    wk.register({
+      L = {
+        name = "LaTeX",
+        r = { "<cmd>VimtexCompile<cr>", "Run/Compile" },
+        v = { "<cmd>VimtexView<cr>", "View PDF" },
+        s = { "<cmd>VimtexStop<cr>", "Stop Compilation" },
+        c = { "<cmd>VimtexClean<cr>", "Clean" },
+        t = { "<cmd>VimtexTocToggle<cr>", "Toggle ToC" },
+        i = { "<cmd>VimtexInfo<cr>", "Info" },
+      },
+    }, { prefix = "<leader>", mode = "n" })
   end,
   lazy = false,
 }

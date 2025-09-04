@@ -28,7 +28,6 @@ return {
           ["y"] = "copy_to_clipboard",
           ["x"] = "cut_to_clipboard",
           ["p"] = "paste_from_clipboard",
-          -- 🔥 شيلنا الـ "H" عشان مايبقاش فيه toggle hidden
         },
       },
 
@@ -43,19 +42,25 @@ return {
 
       filesystem = {
         filtered_items = {
-          hide_dotfiles = true, -- dotfiles always hidden
+          hide_dotfiles = true,
           hide_gitignored = true,
           hide_hidden = false,
           never_show = { ".DS_Store", "thumbs.db" },
           always_show = {},
-          always_show_by_pattern = {}, -- مهم: سيبها فاضية
+          always_show_by_pattern = {},
         },
         follow_current_file = {
           enabled = true,
           leave_dirs_open = false,
         },
-        hijack_netrw_behavior = "open_default",
+        -- ✅ Fix: open Neo-tree at your current working dir, not Git root
+        hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
+        bind_to_cwd = true,
+        cwd_target = {
+          sidebar = "global_cwd",
+          current = "global_cwd",
+        },
       },
     })
 
@@ -68,7 +73,7 @@ return {
       local reveal_file = vim.fn.expand("%:p")
       local args = {
         source = "filesystem",
-        position = "left",
+        position = "right",
         reveal_force_cwd = true,
         reveal_file = reveal_file,
       }

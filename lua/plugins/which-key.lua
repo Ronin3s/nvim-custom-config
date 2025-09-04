@@ -61,6 +61,16 @@ return {
         i = { "<cmd>VimtexInfo<cr>", "Info" },
       },
     }, { prefix = "<leader>", mode = "n" })
+
+    -- CodeSnap group
+    -- CodeSnap group
+    wk.register({
+      s = {
+        name = "Snapshot",
+        c = { ":'<,'>CodeSnap<CR>", "Copy Snapshot to Clipboard" },
+        s = { ":'<,'>CodeSnapSave<CR>", "Save Snapshot to Disk" },
+      },
+    }, { prefix = "<leader>", mode = "v" })
   end,
   lazy = false,
 }

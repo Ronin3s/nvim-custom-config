@@ -62,6 +62,21 @@ return {
       },
     }, { prefix = "<leader>", mode = "n" })
 
+    -- Format group
+    wk.register({
+      C = {
+        name = "Format",
+        f = { function() require("conform").format({ async = true, lsp_fallback = true }) end, "Format File" },
+      }
+    }, { prefix = "<leader>", mode = "n" })
+
+    wk.register({
+      C = {
+        name = "Format",
+        f = { function() require("conform").format({ async = true, lsp_fallback = true }) end, "Format File" },
+      }
+    }, { prefix = "<leader>", mode = "v" })
+
     -- CodeSnap group
     -- CodeSnap group
     wk.register({

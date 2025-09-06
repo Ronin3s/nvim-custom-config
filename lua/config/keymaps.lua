@@ -25,6 +25,6 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previou
 
 
 -- Format current file with conform.nvim
-vim.keymap.set({"n", "v"}, "<leader>Cf", function()
-  require("conform").format({ async = true, lsp_fallback = true })
-end, { desc = "Format file" })
+-- vim.keymap.set({"n", "v"}, "<leader>Cf", function()
+--   require("conform").format({ async = true, lsp_fallback = true })
+-- end, { desc = "Format file" })

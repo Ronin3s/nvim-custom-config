@@ -66,7 +66,7 @@ return {
 
     -- Global keymaps
     vim.keymap.set("n", "<leader>e", ":Neotree toggle filesystem<CR>", { desc = "Toggle Neo-tree (filesystem)" })
-    vim.keymap.set("n", "<leader>b", ":Neotree toggle buffers<CR>", { desc = "Toggle Neo-tree (buffers)" })
+    -- vim.keymap.set("n", "<leader>b", ":Neotree toggle buffers<CR>", { desc = "Toggle Neo-tree (buffers)" })
 
     -- 🔥 Reveal current file even if hidden
     vim.keymap.set("n", "<leader>r", function()

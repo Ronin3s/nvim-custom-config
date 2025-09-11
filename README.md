@@ -2,7 +2,7 @@
 
 This is a personalized Neovim configuration written in Lua. It uses `lazy.nvim` for plugin management and is structured to be modular and easily extensible.
 
-![Dashboard](nvim_Dash_image_showCase.png)
+![Dashboard](DOCS/image/nvim_Dash_image_showCase.png)
 
 ## Features
 

@@ -12,4 +12,3 @@ return {
     vim.g.vimtex_scan_recurse = 1
   end,
 }
-

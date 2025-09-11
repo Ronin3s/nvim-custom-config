@@ -23,8 +23,13 @@ vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buff
 -- Press <Shift-Tab> in normal mode to go to the previous buffer
 vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 
-
+-- -- Search/Find keymaps
+-- vim.keymap.set("n", "<leader>sw", function() require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") }) end, { desc = "Search word under cursor" })
+-- vim.keymap.set("n", "<leader>sf", function() require("telescope.builtin").current_buffer_fuzzy_find() end, { desc = "Search in current file" })
+-- vim.keymap.set("n", "<leader>sg", function() require("telescope.builtin").live_grep() end, { desc = "Global grep search" })
+--
 -- Format current file with conform.nvim
 -- vim.keymap.set({"n", "v"}, "<leader>Cf", function()
 --   require("conform").format({ async = true, lsp_fallback = true })
 -- end, { desc = "Format file" })
+

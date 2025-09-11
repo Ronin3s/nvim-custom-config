@@ -18,15 +18,6 @@ return {
       ["<leader>b"] = { ":Telescope buffers<cr>", "Buffers" },
     }, { mode = "n" })
 
-    -- wk.register({
-    --   ["<leader>c"] = {
-    --     name = "Copilot",
-    --     e = { "<cmd>CopilotChatExplain<cr>", "Explain Selection" },
-    --     f = { "<cmd>CopilotChatFix<cr>", "Fix Selection" },
-    --     r = { "<cmd>CopilotChatReview<cr>", "Review Selection" },
-    --   },
-    -- }, { mode = "v" })
-
     -- Telescope group
     wk.register({
       f = {
@@ -77,7 +68,6 @@ return {
       }
     }, { prefix = "<leader>", mode = "v" })
 
-    -- CodeSnap group
     -- CodeSnap group
     wk.register({
       s = {

@@ -12,15 +12,14 @@ return {
           },
         },
       },
-      -- Add Mason and its lspconfig bridge
+      -- Mason (LSP/DAP/Formatter manager)
       {
         "williamboman/mason.nvim",
         config = function()
-          -- Tell Mason to install formatters
           require("mason").setup({
             ensure_installed = {
-              "stylua",
-              "shfmt",
+              "stylua", -- Lua formatter
+              "shfmt",  -- Shell formatter
             },
             PATH = "prepend",
           })
@@ -29,32 +28,37 @@ return {
       { "williamboman/mason-lspconfig.nvim" },
     },
     config = function()
-      -- Load completion capabilities
+      -- Capabilities for completion
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      -- Define the list of servers to be managed by Mason
+      -- List of servers
       local servers = {
         "lua_ls",
         "bashls",
         "texlab",
+        "tinymist", -- Typst LSP
       }
 
-      -- Configure mason-lspconfig to ensure servers are installed
-      -- and to set up the handlers.
       require('mason-lspconfig').setup({
         ensure_installed = servers,
         handlers = {
-          -- The default handler for each server
+          -- Default handler for each server
           function(server_name)
             require("lspconfig")[server_name].setup {
               capabilities = capabilities,
             }
           end,
+          -- Tinymist custom setup
+          ["tinymist"] = function()
+            require("lspconfig").tinymist.setup {
+              capabilities = capabilities,
+              settings = {
+                exportPdf = "never", -- أو "onSave" لو عايز يعمل PDF كل save
+              },
+            }
+          end,
         }
       })
-
-      -- The old formatting autocmd has been removed.
-      -- conform.nvim now handles formatting.
     end,
   },
 

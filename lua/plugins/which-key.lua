@@ -9,6 +9,69 @@ return {
       win = { border = "rounded" },
     })
 
+    -- Load ToggleTerm API
+    local Terminal    = require("toggleterm.terminal").Terminal
+
+    -- تعريف terminal خاص بـ Typst Watch (bottom split)
+    local typst_watch = Terminal:new({
+      hidden = true,
+      direction = "horizontal", -- bottom split
+      close_on_exit = false,
+      auto_scroll = true,
+      size = 15, -- ارتفاع الـ terminal بالأسطر
+    })
+
+    -- Typst which-key group
+    local typst_keys  = {
+      T = {
+        name = "Typst",
+
+        -- Compile once
+        c = { function()
+          local input_file = vim.fn.expand("%:p")
+          local output_file = vim.fn.expand("%:p:r") .. ".pdf"
+
+          if input_file == "" then
+            print("⚠️ Save the file first! Typst needs a valid input file.")
+            return
+          end
+
+          vim.cmd(string.format(':!typst c "%s" "%s"<CR>', input_file, output_file))
+        end, "Compile" },
+
+        -- Open PDF in Sioyek
+        o = { function()
+          local output_file = vim.fn.expand("%:p:r") .. ".pdf"
+          vim.fn.jobstart({ "sioyek", output_file }, { detach = true })
+        end, "Open PDF" },
+
+        -- Watch with ToggleTerm
+        w = { function()
+          local input_file = vim.fn.expand("%:p")
+          local output_file = vim.fn.expand("%:p:r") .. ".pdf"
+
+          if input_file == "" then
+            print("⚠️ Save the file first before watching!")
+            return
+          end
+
+          typst_watch.cmd = string.format('typst w "%s" "%s"', input_file, output_file)
+          typst_watch:toggle()
+        end, "Watch" },
+
+        -- Close terminal buffer (if needed)
+        q = { ":bd!<CR>", "Quit Watch" },
+
+        -- Format file using conform.nvim
+        f = { function()
+          require("conform").format({ async = true, lsp_fallback = true })
+        end, "Format" },
+      },
+    }
+
+    wk.register(typst_keys, { prefix = "<leader>" })
+
+
     -- Normal mode mappings
     wk.register({
       ["<leader>w"] = { ":w<cr>", "Save file" },

@@ -1,4 +1,3 @@
--- lua/plugins/telescope.lua
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -9,21 +8,35 @@ return {
     },
     config = function()
       local telescope = require("telescope")
+
       telescope.setup({
         defaults = {
           prompt_prefix = "🔍 ",
           selection_caret = " ",
           path_display = { "smart" },
+          mappings = {
+            i = {
+              ["<C-x>"] = require("telescope.actions").select_horizontal,
+              ["<C-v>"] = require("telescope.actions").select_vertical,
+              -- ["<C-t>"] = require("telescope.actions").select_tab,
+            },
+            n = {
+              ["<C-x>"] = require("telescope.actions").select_horizontal,
+              ["<C-v>"] = require("telescope.actions").select_vertical,
+              -- ["<C-t>"] = require("telescope.actions").select_tab,
+            },
+          },
+        },
+        extensions = {
         },
       })
 
-      -- Load fzf extension
+      -- Load extensions
       pcall(telescope.load_extension, "fzf")
       pcall(telescope.load_extension, "notify")
 
-      -- Load custom multi grep module
+      -- Custom multi-grep
       require("custom.telescope-multigrep").setup()
     end,
   },
 }
-

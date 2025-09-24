@@ -1,6 +1,7 @@
 return {
   "catppuccin/nvim",
   name = "catppuccin", -- so lazy.nvim recognizes it
+  enabled = true,
   priority = 1000,     -- load before other plugins
   config = function()
     require("catppuccin").setup({
@@ -16,4 +17,3 @@ return {
     vim.cmd.colorscheme("catppuccin")
   end,
 }
-

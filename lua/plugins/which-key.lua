@@ -113,6 +113,9 @@ return {
         c = { "<cmd>VimtexClean<cr>", "Clean" },
         t = { "<cmd>VimtexTocToggle<cr>", "Toggle ToC" },
         i = { "<cmd>VimtexInfo<cr>", "Info" },
+        a = { function()
+          local ls = require("luasnip"); local snippets = require("custom.snippets.latex"); ls.snip_expand(snippets[1])
+        end, "Article Snippet" },
       },
     }, { prefix = "<leader>", mode = "n" })
 

@@ -95,7 +95,7 @@ return {
 
     -- Lazy.nvim group
     wk.register({
-      l = {
+      L = {
         name = "Lazy",
         s = { "<cmd>Lazy sync<cr>", "Sync plugins" },
         u = { "<cmd>Lazy update<cr>", "Update plugins" },
@@ -105,7 +105,7 @@ return {
 
     -- VimTeX / LaTeX group
     wk.register({
-      L = {
+      l = {
         name = "LaTeX",
         r = { "<cmd>VimtexCompile<cr>", "Run/Compile" },
         v = { "<cmd>VimtexView<cr>", "View PDF" },

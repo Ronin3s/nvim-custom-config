@@ -47,6 +47,15 @@ This configuration uses a variety of plugins to enhance the Neovim experience. H
 *   [Comment.nvim](https://github.com/numToStr/Comment.nvim): Smart commenting.
 *   [conform.nvim](https://github.com/stevearc/conform.nvim): A formatting plugin.
 *   [vimtex](https://github.com/lervag/vimtex): A comprehensive suite for editing LaTeX files.
+*   [catppuccin](https://github.com/catppuccin/nvim): A soothing pastel theme.
+*   [nvim-cmp](https://github.com/hrsh7th/nvim-cmp): A completion engine.
+*   [codesnap.nvim](https://github.com/mistricky/codesnap.nvim): Create beautiful code screenshots.
+*   [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim): Indentation guides.
+*   [noice.nvim](https://github.com/folke/noice.nvim): A more modern UI for messages and cmdline.
+*   [nvim-notify](https://github.com/rcarriga/nvim-notify): A notification manager.
+*   [project.nvim](https://github.com/ahmedkhalf/project.nvim): Project management.
+*   [smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim): A smooth cursor animation.
+*   [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim): An easy way to manage terminals.
 
 For a full list of plugins, see the `lua/plugins/` directory.
 

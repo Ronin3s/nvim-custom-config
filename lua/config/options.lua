@@ -7,6 +7,7 @@ opt.swapfile = false
 opt.undofile = true
 opt.fileencoding = "utf-8"
 opt.encoding = "utf-8"
+opt.autoread = true
 
 -- opt.cmdheight = 0 -- hides command line unless needed (Neovim 0.8+)
 
@@ -46,3 +47,15 @@ opt.splitbelow = true
 
 -- Clipboard
 opt.clipboard = "unnamedplus" -- use system clipboard
+
+
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  command = "checktime",
+})
+
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  callback = function()
+    vim.notify("File changed on disk. Buffer reloaded!", vim.log.levels.INFO)
+  end,
+})

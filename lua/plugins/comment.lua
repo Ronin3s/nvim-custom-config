@@ -1,7 +1,10 @@
 -- File: lua/plugins/comment.lua
 return {
   "numToStr/Comment.nvim",
-  lazy = false,  -- load immediately
+  keys = {
+    { "<leader>/", mode = "n", desc = "Toggle comment line" },
+    { "<leader>/", mode = "v", desc = "Toggle comment block" },
+  },
   config = function()
     -- Minimal setup for the plugin
     require("Comment").setup()

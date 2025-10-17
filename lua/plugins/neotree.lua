@@ -65,15 +65,15 @@ return {
     })
 
     -- Global keymaps
-    vim.keymap.set("n", "<leader>e", ":Neotree toggle filesystem<CR>", { desc = "Toggle Neo-tree (filesystem)" })
+    -- vim.keymap.set("n", "<leader>e", ":Neotree toggle filesystem<CR>", { desc = "Toggle Neo-tree (filesystem)" })
     -- vim.keymap.set("n", "<leader>b", ":Neotree toggle buffers<CR>", { desc = "Toggle Neo-tree (buffers)" })
 
     -- 🔥 Reveal current file even if hidden
-    vim.keymap.set("n", "<leader>r", function()
+    vim.keymap.set("n", "<leader>R", function()
       local reveal_file = vim.fn.expand("%:p")
       local args = {
         source = "filesystem",
-        position = "right",
+        -- position = "right",
         reveal_force_cwd = true,
         reveal_file = reveal_file,
       }

@@ -20,6 +20,7 @@ return {
             ensure_installed = {
               "stylua", -- Lua formatter
               "shfmt",  -- Shell formatter
+              "codelldb",
             },
             PATH = "prepend",
           })

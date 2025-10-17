@@ -10,5 +10,6 @@ return {
     vim.g.vimtex_mappings_disable = { ["n"] = { "K" } }
     vim.g.vimtex_quickfix_method = "latexlog"
     vim.g.vimtex_scan_recurse = 1
+    vim.g.vimtex_quickfix_mode = 0
   end,
 }

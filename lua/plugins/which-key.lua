@@ -77,7 +77,7 @@ return {
       ["<leader>w"] = { ":w<cr>", "Save file" },
       ["<leader>c"] = { ":bd<cr>", "Close buffer" },
       ["<leader>q"] = { ":q<cr>", "Quit Neovim" },
-      ["<leader>e"] = { ":Neotree toggle<cr>", "Neo filesystem" },
+      ["<leader>e"] = { ":Neotree toggle<cr>", "filesystem" },
       ["<leader>b"] = { ":Telescope buffers<cr>", "Buffers" },
     }, { mode = "n" })
 
@@ -90,6 +90,21 @@ return {
         b = { "<cmd>Telescope buffers<cr>", "Buffers" },
         h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
         n = { "<cmd>Telescope notify<cr>", "Notification History" },
+      },
+    }, { prefix = "<leader>", mode = "n" })
+
+    -- Rust group
+    wk.register({
+      r = {
+        name = "Rust",
+        a = { "<cmd>RustLsp codeAction<cr>", "Code Action" },
+        r = { "<cmd>RustLsp runnables<cr>", "Run" },
+        t = { "<cmd>RustLsp testables<cr>", "Test" },
+        d = { "<cmd>RustLsp debuggables<cr>", "Debug" },
+        e = { "<cmd>RustLsp expandMacro<cr>", "Expand Macro" },
+        h = { "<cmd>RustLsp hover actions<cr>", "Hover Actions" },
+        p = { "<cmd>RustLsp parentModule<cr>", "Parent Module" },
+        c = { "<cmd>RustLsp openCargo<cr>", "Open Cargo.toml" },
       },
     }, { prefix = "<leader>", mode = "n" })
 
@@ -113,6 +128,9 @@ return {
         c = { "<cmd>VimtexClean<cr>", "Clean" },
         t = { "<cmd>VimtexTocToggle<cr>", "Toggle ToC" },
         i = { "<cmd>VimtexInfo<cr>", "Info" },
+        o = { ":copen<CR>", "Open quickfix" },
+        x = { ":cclose<CR>", "Close quickfix" },
+        w = { ":cwindow<CR>", "Toggle quickfix" },
         a = { function()
           local ls = require("luasnip"); local snippets = require("custom.snippets.latex"); ls.snip_expand(snippets[1])
         end, "Article Snippet" },

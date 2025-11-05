@@ -93,18 +93,10 @@ return {
       },
     }, { prefix = "<leader>", mode = "n" })
 
-    -- Rust group
+    -- Rust group (for display only)
     wk.register({
       r = {
         name = "Rust",
-        a = { "<cmd>RustLsp codeAction<cr>", "Code Action" },
-        r = { "<cmd>RustLsp runnables<cr>", "Run" },
-        t = { "<cmd>RustLsp testables<cr>", "Test" },
-        d = { "<cmd>RustLsp debuggables<cr>", "Debug" },
-        e = { "<cmd>RustLsp expandMacro<cr>", "Expand Macro" },
-        h = { "<cmd>RustLsp hover actions<cr>", "Hover Actions" },
-        p = { "<cmd>RustLsp parentModule<cr>", "Parent Module" },
-        c = { "<cmd>RustLsp openCargo<cr>", "Open Cargo.toml" },
       },
     }, { prefix = "<leader>", mode = "n" })
 

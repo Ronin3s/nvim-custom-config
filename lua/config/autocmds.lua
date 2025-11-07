@@ -25,3 +25,4 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     vim.notify("Reloaded " .. module_name, vim.log.levels.INFO)
   end,
 })
+

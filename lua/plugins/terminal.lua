@@ -4,7 +4,7 @@ return {
   config = function()
     require("toggleterm").setup({
       direction = "horizontal", -- bottom split
-      size = 10,
+      size = 15,
       shade_terminals = true,
       start_in_insert = true,
       persist_size = true,
@@ -17,8 +17,8 @@ return {
     -- Toggle terminal with <leader>tt
     vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle Terminal" })
 
-    -- Exit insert mode in terminal with Ctrl-Shift-l
-    vim.keymap.set("t", "<C-l>", [[<C-\><C-n>]], { desc = "Terminal Normal Mode" })
+    -- Exit insert mode in terminal with Ctrl-Shift-n
+    vim.keymap.set("t", "<C-n>", [[<C-\><C-n>]], { desc = "Terminal Normal Mode" })
 
     -- Lazygit terminal
     local Terminal = require("toggleterm.terminal").Terminal

@@ -10,6 +10,11 @@ return {
         show_close_icon = false,
         show_buffer_close_icons = true,
         always_show_bufferline = true,
+        name_formatter = function(buf)
+          if vim.bo[buf.bufnr].filetype == "toggleterm" then
+            return "Terminal"
+          end
+        end,
 
         -- 👇 This is the important part to avoid overlapping Neo-tree
         offsets = {

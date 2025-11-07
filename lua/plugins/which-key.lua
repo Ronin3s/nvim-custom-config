@@ -86,6 +86,7 @@ return {
       f = {
         name = "Find",
         f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+        r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
         g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
         b = { "<cmd>Telescope buffers<cr>", "Buffers" },
         h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },

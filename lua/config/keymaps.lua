@@ -1,8 +1,8 @@
 -- lua/config/keymaps.lua
 -- Better window navigation with Ctrl + h/j/k/l
 -- Cycle through windows with Ctrl-h / Ctrl-l
-vim.keymap.set("n", "<C-l>", "<C-w>w", { desc = "Go to next window" })
-vim.keymap.set("n", "<C-h>", "<C-w>W", { desc = "Go to previous window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>w", { desc = "Go to next window" })
+-- vim.keymap.set("n", "<C-h>", "<C-w>W", { desc = "Go to previous window" })
 
 -- Save current file
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
@@ -32,4 +32,3 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previou
 -- vim.keymap.set({"n", "v"}, "<leader>Cf", function()
 --   require("conform").format({ async = true, lsp_fallback = true })
 -- end, { desc = "Format file" })
-

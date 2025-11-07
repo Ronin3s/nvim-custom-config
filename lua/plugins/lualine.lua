@@ -16,9 +16,19 @@ return {
       lualine_b = { "branch", "diff", "diagnostics" },
       lualine_c = {
         {
-          "filename",
-          path = 1,
-          symbols = { modified = " [+]", readonly = " [-]", unnamed = "[No Name]" }
+          function()
+            if vim.bo.filetype == 'toggleterm' then
+              return ' '
+            end
+            local filename = vim.fn.expand('%:t')
+            if filename == '' then return '[No Name]' end
+            local path = vim.fn.expand('%:p:h:t')
+            if path ~= '' and path ~= '.' then
+              return path .. '/' .. filename
+            end
+            return filename
+          end,
+          symbols = { modified = " [+ episodic]", readonly = " [-]", unnamed = "[No Name]" }
         }
       },
       lualine_x = { "encoding", "fileformat", "filetype" },

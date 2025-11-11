@@ -32,3 +32,55 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previou
 -- vim.keymap.set({"n", "v"}, "<leader>Cf", function()
 --   require("conform").format({ async = true, lsp_fallback = true })
 -- end, { desc = "Format file" })
+
+-- Temporary debug keymap
+-- vim.keymap.set("n", "<leader>di", function()
+--   print("--- Active LSP Clients ---")
+--   local clients = vim.lsp.get_clients({ bufnr = 0 })
+--   if #clients == 0 then
+--     print("None")
+--   end
+--   for _, client in ipairs(clients) do
+--     print(string.format("- %s (id: %d)", client.name, client.id))
+--   end
+--
+--   print("\n--- Diagnostics for current buffer ---")
+--   local diagnostics = vim.diagnostic.get(0)
+--   if #diagnostics == 0 then
+--     print("None")
+--   end
+--   for i, diag in ipairs(diagnostics) do
+--     print(string.format("%d. [%s] %s", i, diag.source or "unknown", diag.message))
+--   end
+-- end, { desc = "Debug: Show LSP clients and diagnostics" })
+
+-- Debug: Show diagnostic info (useful for debugging duplicates)
+-- vim.keymap.set("n", "<leader>dd", function()
+--   local clients = vim.lsp.get_clients()
+--   print("=== Active LSP Clients ===")
+--   for _, client in ipairs(clients) do
+--     print(string.format("  - %s (id: %d)", client.name, client.id))
+--   end
+--
+--   local diagnostics = vim.diagnostic.get(0)
+--   local by_line = {}
+--
+--   for _, diag in ipairs(diagnostics) do
+--     local line = diag.lnum + 1
+--     if not by_line[line] then by_line[line] = {} end
+--     table.insert(by_line[line], {
+--       source = diag.source or "unknown",
+--       message = diag.message:sub(1, 60)
+--     })
+--   end
+--
+--   print("\n=== Lines with multiple diagnostics ===")
+--   for line, diags in pairs(by_line) do
+--     if #diags > 1 then
+--       print(string.format("Line %d (%d diagnostics):", line, #diags))
+--       for i, d in ipairs(diags) do
+--         print(string.format("  %d. [%s] %s", i, d.source, d.message))
+--       end
+--     end
+--   end
+-- end, { desc = "Debug: Show diagnostic sources" })
